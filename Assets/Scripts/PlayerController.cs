@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float torqueAmount= 1f;
-    [SerializeField] float normalSpeed=20f;
-    [SerializeField] float boostSpeed=40f;
+    [SerializeField] float torqueAmount = 1f;
+    [SerializeField] float normalSpeed = 20f;
+    [SerializeField] float boostSpeed = 40f;
     Rigidbody2D rb2d;
     SurfaceEffector2D surfaceEffector2D;
     bool canMove = true;
@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
-        RotatePlayer();
-        RespondToBoost();
+            RotatePlayer();
+            RespondToBoost();
         }
     }
 
@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour
 
     void RespondToBoost()
     {
-        if(Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             surfaceEffector2D.speed = boostSpeed;
         }
-        else 
+        else
         {
             surfaceEffector2D.speed = normalSpeed;
         }
@@ -49,11 +49,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb2d.AddTorque(torqueAmount);
+            rb2d.AddTorque(torqueAmount / 10);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            rb2d.AddTorque(-torqueAmount);
+            rb2d.AddTorque(-torqueAmount / 10);
         }
     }
 }
