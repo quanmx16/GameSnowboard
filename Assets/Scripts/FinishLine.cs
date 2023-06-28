@@ -13,7 +13,7 @@ public class FinishLine : MonoBehaviour
         if (other.tag == "Player")
         {
             GameController.Level += 1;
-            if(GameController.Level > 0 && GameController.Level < 5)
+            if(GameController.Level > 0 && GameController.Level < 4)
             {
                 SceneManager.LoadScene("Level" + (GameController.Level + 1));
             }
